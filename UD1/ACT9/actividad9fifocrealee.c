@@ -10,7 +10,8 @@ int main (void)
 {
 	int fp;
 	int p, bytesleidos;
-	char saludo[] = "Un saludo !!!!!\n", buffer [10];
+	char saludo[] = "Un saludo !!!!!\n", buffer [100]; //more space to read messages
+
 	p=mknod("FIFO2", S_IFIFO|0666, 0); /// permiso de lectura y escritura
 	
 	if (p== -1) {
@@ -22,9 +23,9 @@ int main (void)
 		fp = open ("FIFO2", 0);
 		bytesleidos = read(fp, buffer, 1);
 		printf("Obteniendo información...\n"); 
-		while (bytesleidos != 0) {
-			printf("%s", buffer);
-			bytesleidos = read (fp, buffer, 1); // leo otro byte
+        while ((bytesleidos = read(fp, buffer, sizeof(buffer) - 1)) > 0) { //change the condition of the while loop
+			buffer[bytesleidos] = '\0';  // Null-terminate the string, so we print the text in a good way
+            printf("%s", buffer);
 	}
 	close (fp);
 }
