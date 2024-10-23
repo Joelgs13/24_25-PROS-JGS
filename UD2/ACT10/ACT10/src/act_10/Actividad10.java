@@ -1,8 +1,20 @@
 
 
 package act_10;
+// TODO: Auto-generated Javadoc
 
+/**
+ * The Class Actividad10. That instanciates a thread main and 2 hilo objects and runs the hilos
+ */
 public class Actividad10 {
+	
+	/**
+	 * The main method. first instanciates a thread and 2 hilos, then changes the 
+	 * priority of the hilos, sets a new name to the thread, shows the output
+	 * and starts the threads
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String[] args) {
 		Thread main = new Thread();
 		Hilo thread0 = new Hilo("Hilo-prioridad 3");
