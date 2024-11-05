@@ -1,4 +1,4 @@
-package Act_15;
+package act_16;
 	class Contador {
 		private int c=0;
 		Contador (int c) { 

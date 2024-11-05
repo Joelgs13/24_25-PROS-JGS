@@ -1,13 +1,13 @@
-package Act_15;
-class HiloB extends Thread {
+package act_16;
+class HiloA extends Thread {
 private Contador contador;
-public HiloB (String n, Contador c) {
+public HiloA (String n, Contador c) {
 setName(n);
 contador=c;
 }
 public void run () {
 for (int j=0; j < 300; j++) {
-contador.decrementa();
+contador.incrementa();
 try {
 Thread.sleep(100);
 } catch (InterruptedException e) {}
