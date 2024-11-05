@@ -5,11 +5,11 @@ package act_16;
 			this.c = c; 
 		}
 		
-		public void incrementa() {
+		public synchronized void incrementa() {
 			c=c+1;
 		}
 		
-		public void decrementa() {
+		public synchronized void decrementa() {
 			c=c-1;
 		}
 		
