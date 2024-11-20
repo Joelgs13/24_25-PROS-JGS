@@ -11,25 +11,28 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 /**
- * The Class Actividad1.
+ * The Actividad1 class retrieves and displays all IP addresses associated
+ * with the hostname "www.spotify.com".
  */
 public class Actividad1 {
-	
-	/**
-	 * The main method.
-	 *
-	 * @param args the arguments
-	 */
-	public static void main(String[] args) {
-		System.out.println("Direcciones asociadas a Spotify:\n");
-		try {
-			InetAddress[] ips = InetAddress.getAllByName("www.spotify.com");
-			for (InetAddress ip : ips) {
-				System.out.println(ip);
-			}
-		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+
+    /**
+     * Main method of the program.
+     * 
+     * This method retrieves all IP addresses associated with "www.spotify.com"
+     * and displays them. If the hostname cannot be resolved, an error is printed.
+     * 
+     * @param args command-line arguments (not used in this program).
+     */
+    public static void main(String[] args) {
+        System.out.println("Direcciones asociadas a Spotify:\n");
+        try {
+            InetAddress[] ips = InetAddress.getAllByName("www.spotify.com");
+            for (InetAddress ip : ips) {
+                System.out.println(ip);
+            }
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+    }
 }

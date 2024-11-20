@@ -11,37 +11,39 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class Actividad2.
+ * The Actividad2 class demonstrates how to use the InetAddress class
+ * to retrieve and display all IP addresses associated with a given hostname.
+ * It also checks if the first IP address is reachable within a specified timeout.
  */
 public class Actividad2 {
 
-	/**
-	 * The main method.
-	 *
-	 * @param args the arguments
-	 */
-	public static void main(String[] args) {
-		InetAddress[] ips;
-		try {
-			ips = InetAddress.getAllByName(args[0]);
-			if (ips[0].isReachable(5000)) {
-				//it haves an address, its ok
-				System.out.println("Las direcciones asociadas a "+ips[0].getHostName()+" son:\n");
-				for (InetAddress ip : ips) {
-					System.out.println(ip);
-				}
-			} else {
-				System.out.println("Se necesita una URL para obtener su dirección");
-			}
-		} catch (UnknownHostException e) { //shows this message when not reaching the host especified in args
-			System.out.println("Se necesita una URL para obtener su dirección");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}
-	
+    /**
+     * Main method of the program.
+     * 
+     * This method retrieves all IP addresses associated with a hostname provided as
+     * a command-line argument. It checks if the first address is reachable and 
+     * displays the associated addresses. If no valid hostname is provided, 
+     * it shows an appropriate message.
+     * 
+     * @param args command-line arguments. The first argument should be a hostname or URL.
+     */
+    public static void main(String[] args) {
+        InetAddress[] ips;
+        try {
+            ips = InetAddress.getAllByName(args[0]);
+            if (ips[0].isReachable(5000)) {
+                System.out.println("Las direcciones asociadas a " + ips[0].getHostName() + " son:\n");
+                for (InetAddress ip : ips) {
+                    System.out.println(ip);
+                }
+            } else {
+                System.out.println("Se necesita una URL para obtener su dirección");
+            }
+        } catch (UnknownHostException e) {
+            System.out.println("Se necesita una URL para obtener su dirección");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
