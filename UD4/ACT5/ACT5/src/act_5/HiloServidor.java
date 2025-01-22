@@ -19,8 +19,8 @@ public class HiloServidor extends Thread{
 	public HiloServidor(Socket s, EstructuraFicheros nF) throws IOException {
 		socket = s;
 		NF = nF;
-		outObjeto = outObjeto;
-		inObjeto = inObjeto;
+		outObjeto = new ObjectOutputStream(socket.getOutputStream());
+		inObjeto =  new ObjectInputStream(socket.getInputStream());
 	}
 	
 	public void run()
